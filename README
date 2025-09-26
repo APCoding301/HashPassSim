@@ -1,5 +1,21 @@
-1. cd webapp (from "AIProjects" directory)
+What does this app do?
+
+This is a simple web application that allows users to register and login. 
+It is built using Flask.
+It shows how users' email IDs and passwords are actually stored.
+The passwords are hashed using SHA256 algorithm before storing them in the database.
+In this webapp, instead of a database, we are using a simple text file "user_passwords" to store user data
+After running the webapp, go ahead and open up the file and see what the hashed password looks like.
+
+How to run this app?
+
+1. cd webapp (from which ever directory you have cloned this repo into)
 2. Do a "echo $SHELL". Ensure it says "bash".
+    If it says "zsh", then do "chsh -s /bin/bash" and restart your terminal.
+    Then do "echo $SHELL" again to ensure it says "bash".
+    Now do "python3 -m venv ../.venv" (this will create a Python virtual environment in the parent directory of webapp)
+    Then do "source ../.venv/bin/activate" (this will activate the Python virtual environment)
+    Now do "pip install -r requirements.txt" (this will install all the required Python packages in the virtual environment)
 3. Then run this command -- "source ../.venv/bin/activate"
 4. Above should have successfully set up the Python virtual environment.
 5. Finally, run "python app.py" (you should be in the 'webapp' directory)
