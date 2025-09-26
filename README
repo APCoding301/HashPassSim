@@ -1,0 +1,8 @@
+1. cd webapp (from "AIProjects" directory)
+2. Do a "echo $SHELL". Ensure it says "bash".
+3. Then run this command -- "source ../.venv/bin/activate"
+4. Above should have successfully set up the Python virtual environment.
+5. Finally, run "python app.py" (you should be in the 'webapp' directory)
+6. Open a web browser and go to "http://localhost:5000"
+7. You should see the web application running, with 2 options "Register" and "Login"
+8. To stop the web application, go back to the terminal and press "Ctrl + C".
