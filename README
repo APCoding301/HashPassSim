@@ -7,6 +7,10 @@ The passwords are hashed using SHA256 algorithm before storing them in the datab
 In this webapp, instead of a database, we are using a simple text file "user_passwords" to store user data
 After running the webapp, go ahead and open up the file and see what the hashed password looks like.
 
+UPDATED -- After a successful registration, the app now connects to Gemini-2.5-Flash model and gets a response from it.
+It then shows that response on the registration success page.
+The LLM is asked to explain how hashing works with SHA-256 as an example, in 3 paragraphs or less.
+
 How to run this app?
 
 1. cd webapp (from which ever directory you have cloned this repo into)
@@ -18,7 +22,12 @@ How to run this app?
     Now do "pip install -r requirements.txt" (this will install all the required Python packages in the virtual environment)
 3. Then run this command -- "source ../.venv/bin/activate"
 4. Above should have successfully set up the Python virtual environment.
+    Now, you need to set up the Gemini API key as an environment variable.
+    If you don't have a Gemini API key, go to https://developers.generativeai.google/products and sign up for one.
+    Once you have the API key, run this command in the terminal (replace <YOUR_API_KEY> with your actual API key):
+    export GEMINI_API_KEY=<YOUR_API_KEY>
 5. Finally, run "python app.py" (you should be in the 'webapp' directory)
 6. Open a web browser and go to "http://localhost:5000"
 7. You should see the web application running, with 2 options "Register" and "Login"
-8. To stop the web application, go back to the terminal and press "Ctrl + C".
+8. Upon a successful registration, you should see a response from Gemini-2.5-Flash model on the success page.
+9. To stop the web application, go back to the terminal and press "Ctrl + C".

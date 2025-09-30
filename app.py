@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template_string
+from google import genai
 import hashlib
 import os
 
@@ -56,7 +57,13 @@ def register() -> str:  # type: ignore
                         return render_template_string(register_html, message=message)
         with open(USER_FILE, 'a') as f:
             f.write(f"{email}:{hashed}\n")
-        message = 'Registration successful.'
+        message = 'Registration successful.\n\n'
+
+        # The client gets the API key from the environment variable `GEMINI_API_KEY`.
+        client = genai.Client()
+        respLLM = client.models.generate_content(model="gemini-2.5-flash", contents="Explain how hashing works with SHA-256 as an example, in 3 paragraphs or less.")
+        # message += f"<br><br>Response from Gemini-2.5-Flash:<br>{respLLM.text}"
+        message += respLLM.text
     return render_template_string(register_html, message=message)
 
 @app.route('/login', methods=['GET', 'POST'])  # type: ignore
